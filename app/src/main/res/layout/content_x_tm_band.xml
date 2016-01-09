@@ -6,15 +6,47 @@
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:background="@android:color/holo_blue_light"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.andhowstudios.xtmband.xTmBand"
     tools:showIn="@layout/activity_x_tm_band">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello This is my first github project!" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="25dp"
+            android:id="@+id/takePicture" />
+        <TextView
+            android:layout_width="0dp"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:layout_height="match_parent"
+            android:textAlignment="textEnd"
+            android:textSize="25dp"
+            android:layout_weight="1.5"
+            android:layout_gravity="end"
+            android:id="@+id/selectPicture"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:textSize="25dp"
+
+            android:textAlignment="textEnd"
+            android:layout_gravity="end"
+            android:id="@+id/savePicture"/>
+
+
+
+    </LinearLayout>
+
 </RelativeLayout>
