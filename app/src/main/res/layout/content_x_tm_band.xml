@@ -44,9 +44,12 @@
             android:textAlignment="textEnd"
             android:layout_gravity="end"
             android:id="@+id/savePicture"/>
-
-
-
     </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitStart"
+        android:paddingBottom="50dp"
+        android:id="@+id/imageView"/>
 
 </RelativeLayout>

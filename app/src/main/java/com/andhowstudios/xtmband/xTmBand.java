@@ -1,6 +1,8 @@
 package com.andhowstudios.xtmband;
 
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
@@ -11,13 +13,21 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.content.Intent;
+import android.graphics.Bitmap;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 public class xTmBand extends AppCompatActivity {
 
     final int SELECT_PHOTO = 99;
     final int TAKE_PHOTO = 999;
+    ImageView mImageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -30,6 +40,9 @@ public class xTmBand extends AppCompatActivity {
         char[] pictureSelectIcon = {0xf03e};
         char[] pictureSaveIcon= {0xf0c7};
 
+
+
+        mImageView = (ImageView) findViewById(R.id.imageView);
         TextView sp = (TextView) findViewById(R.id.savePicture);
         Typeface fontAwesomeTF = Typeface.createFromAsset(this.getAssets(), "fontawesome-webfont.ttf");
         sp.setTypeface(fontAwesomeTF);
@@ -79,6 +92,34 @@ public class xTmBand extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == TAKE_PHOTO && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+
+
+
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            mImageView.setImageBitmap(imageBitmap);
+        }else if(requestCode == SELECT_PHOTO && resultCode == RESULT_OK){
+            try {
+                Uri selectedImage = data.getData();
+                InputStream imageStream = getContentResolver().openInputStream(selectedImage);
+                Bitmap yourSelectedImage = BitmapFactory.decodeStream(imageStream);
+                mImageView.setImageBitmap((yourSelectedImage));
+
+            }catch(FileNotFoundException ex){
+
+                //Didnt find the file
+
+            }
+        }
+
+
+        }
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
