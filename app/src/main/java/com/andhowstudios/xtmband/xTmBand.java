@@ -15,6 +15,7 @@ public class xTmBand extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_x_tm_band);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -39,18 +40,6 @@ public class xTmBand extends AppCompatActivity {
         takePicture.setText(pictureTakeIcon,0,1);
 
 
-
-        //String vy = "" + x;
-
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
