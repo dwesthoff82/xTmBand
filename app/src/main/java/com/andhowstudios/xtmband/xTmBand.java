@@ -193,6 +193,37 @@ public class xTmBand extends AppCompatActivity {
             if(selectionRecatangle == null) {
                 selectionRecatangle = new View(this);
                 selectionRecatangle.setBackgroundResource(R.drawable.rectangle);
+                selectionRecatangle.setOnTouchListener(new View.OnTouchListener() {
+                    float dX, dY;
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+
+                        switch (event.getActionMasked()) {
+
+                            case MotionEvent.ACTION_DOWN:
+
+                                dX = selectionRecatangle.getX() - event.getRawX();
+                                dY = selectionRecatangle.getY() - event.getRawY();
+                                break;
+
+                            case MotionEvent.ACTION_MOVE:
+
+                                selectionRecatangle.animate()
+                                        .x(event.getRawX() + dX)
+                                        .y(event.getRawY() + dY)
+                                        .setDuration(0)
+                                        .start();
+                                break;
+                            default:
+                                return false;
+                        }
+                        return true;
+                    }
+
+                });
+
+
+
             }
             runOnUiThread(new Runnable() {
                 @Override
