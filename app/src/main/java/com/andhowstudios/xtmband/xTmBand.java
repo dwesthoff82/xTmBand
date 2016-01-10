@@ -58,7 +58,7 @@ public class xTmBand extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
 
                 //We are going to launch the intent to pick an image
-                Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                Intent photoPickerIntent = new Intent(Intent.ACTION_GET_CONTENT);
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, SELECT_PHOTO);
 
@@ -113,10 +113,11 @@ public class xTmBand extends AppCompatActivity {
                 //Didnt find the file
 
             }
+
         }
 
 
-        }
+
     }
 
 

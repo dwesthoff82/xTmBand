@@ -48,8 +48,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="fitStart"
+        android:scaleType="fitCenter"
         android:paddingBottom="50dp"
+        android:paddingTop="50dp"
         android:id="@+id/imageView"/>
 
 </RelativeLayout>
